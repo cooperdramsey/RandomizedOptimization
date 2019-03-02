@@ -8,4 +8,14 @@
 # exact same neural network in this assignment so I can directly compare the performance of the various algorithms to
 # back propagation.
 
+# Optimization Example Problems
 
+# One Max
+
+# Flip Flop
+
+# Four Peaks Problem (Simulated Annealing example)
+
+# K-Color Problem (MIMIC example)
+
+# Flip Flop with adjusted fitness function
