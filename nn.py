@@ -95,7 +95,7 @@ if __name__ == '__main__':
     accuracies = []
     for max_iters in iterations:
         # Randomized Hill Climbing
-        total_runs = range(10)
+        total_runs = range(1)
         best_acc = 0
         best_time = float("inf")
         clf_2 = NeuralNetwork(hidden_nodes=hidden_layers, activation=activation,
@@ -125,38 +125,38 @@ if __name__ == '__main__':
     time_plot_2 = plot_time_curve("Simulated Annealing", iterations, train_times)
     acc_plot_2 = plot_accuracy_curve("Simulated Annealing", iterations, accuracies)
 
-    # iterations = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1500, 2000]
-    # train_times = []
-    # accuracies = []
-    # for max_iters in iterations:
-    #     # Genetic algorithm
-    #     pop_size = 200
-    #     mutation_prob = 0.1
-    #     clf_3 = NeuralNetwork(hidden_nodes=hidden_layers, activation=activation,
-    #                           max_iters=max_iters, learning_rate=learning_rate, algorithm='genetic_alg',
-    #                           pop_size=pop_size,
-    #                           mutation_prob=mutation_prob, clip_max=5)
-    #
-    #     # Train and algorithms
-    #     start_3 = timer()
-    #     clf_3.fit(X_train, y_train)
-    #     end_3 = timer()
-    #     train_time_3 = end_3 - start_3
-    #
-    #     train_times.append(train_time_3)
-    #
-    #     y_pred_3 = clf_3.predict(X_test)
-    #     acc_3 = accuracy_score(y_test, y_pred_3)
-    #
-    #     accuracies.append(acc_3)
-    #
-    # # Plot Random hill climb results
-    # time_plot_3 = plot_time_curve("Genetic Algorithm", iterations, train_times)
-    # acc_plot_3 = plot_accuracy_curve("Genetic Algorithm", iterations, accuracies)
+    iterations = [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1500, 2000]
+    train_times = []
+    accuracies = []
+    for max_iters in iterations:
+        # Genetic algorithm
+        pop_size = 200
+        mutation_prob = 0.1
+        clf_3 = NeuralNetwork(hidden_nodes=hidden_layers, activation=activation,
+                              max_iters=max_iters, learning_rate=learning_rate, algorithm='genetic_alg',
+                              pop_size=pop_size,
+                              mutation_prob=mutation_prob, clip_max=5)
+
+        # Train and algorithms
+        start_3 = timer()
+        clf_3.fit(X_train, y_train)
+        end_3 = timer()
+        train_time_3 = end_3 - start_3
+
+        train_times.append(train_time_3)
+
+        y_pred_3 = clf_3.predict(X_test)
+        acc_3 = accuracy_score(y_test, y_pred_3)
+
+        accuracies.append(acc_3)
+
+    # Plot Random hill climb results
+    time_plot_3 = plot_time_curve("Genetic Algorithm", iterations, train_times)
+    acc_plot_3 = plot_accuracy_curve("Genetic Algorithm", iterations, accuracies)
 
     time_plot_1.show()
     acc_plot_1.show()
     time_plot_2.show()
     acc_plot_2.show()
-    # time_plot_3.show()
-    # acc_plot_3.show()
+    time_plot_3.show()
+    acc_plot_3.show()
