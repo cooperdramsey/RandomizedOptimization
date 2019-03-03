@@ -29,7 +29,7 @@ def solve_hill(problem, problem_name):
     start = timer()
     best_state, best_fitness, fitness_curve = random_hill_climb(problem, curve=True, restarts=10)
     end = timer()
-    plot = plot_curve(problem_name + "-Random Climb", "Iterations", "Fitness", range(fitness_curve.size), fitness_curve)
+    plot = plot_curve(problem_name + "-Random Climb", "Iterations", "Fitness", range(fitness_curve.size), fitness_curve).show()
     time = end - start
     num_iters = fitness_curve.size
     return best_fitness, time, num_iters, plot
@@ -39,7 +39,7 @@ def solve_sim(problem, problem_name):
     start = timer()
     best_state, best_fitness, fitness_curve = simulated_annealing(problem, curve=True)
     end = timer()
-    plot = plot_curve(problem_name + "-Simulated Annealing", "Iterations", "Fitness", range(fitness_curve.size), fitness_curve)
+    plot = plot_curve(problem_name + "-Simulated Annealing", "Iterations", "Fitness", range(fitness_curve.size), fitness_curve).show()
     time = end - start
     num_iters = fitness_curve.size
     return best_fitness, time, num_iters, plot
@@ -49,7 +49,7 @@ def solve_gen(problem, problem_name):
     start = timer()
     best_state, best_fitness, fitness_curve = genetic_alg(problem, curve=True)
     end = timer()
-    plot = plot_curve(problem_name + "-Genetic", "Iterations", "Fitness", range(fitness_curve.shape[0]), np.max(fitness_curve, axis=1))
+    plot = plot_curve(problem_name + "-Genetic", "Iterations", "Fitness", range(fitness_curve.shape[0]), np.max(fitness_curve, axis=1)).show()
     time = end - start
     num_iters = fitness_curve.shape[0]
     return best_fitness, time, num_iters, plot
@@ -59,7 +59,7 @@ def solve_mimic(problem, problem_name):
     start = timer()
     best_state, best_fitness, fitness_curve = mimic(problem, curve=True)
     end = timer()
-    plot = plot_curve(problem_name + "-MIMIC", "Iterations", "Fitness", range(fitness_curve.shape[0]), np.max(fitness_curve, axis=1))
+    plot = plot_curve(problem_name + "-MIMIC", "Iterations", "Fitness", range(fitness_curve.shape[0]), np.max(fitness_curve, axis=1)).show()
     time = end - start
     num_iters = fitness_curve.shape[0]
     return best_fitness, time, num_iters, plot
@@ -75,7 +75,7 @@ problems = {'OneMax': DiscreteOpt(problem_size, OneMax()),
                                                       list(np.random.randint(1, high=9, size=problem_size)))),
             'Custom': DiscreteOpt(problem_size, CustomFitness(custom_fn))}
 
-# # One Max
+# One Max
 hill_fitness, hill_time, hill_iters, hill_plot = solve_hill(problems['OneMax'], 'OneMax')
 sim_fitness, sim_time, sim_iters, sim_plot = solve_sim(problems['OneMax'], 'OneMax')
 gen_fitness, gen_time, gen_iters, gen_plot = solve_gen(problems['OneMax'], 'OneMax')
@@ -88,7 +88,7 @@ one_max_plot = [hill_plot, sim_plot, gen_plot, mimic_plot]
 
 print('OneMax\n')
 for i in range(4):
-    print('Hill: ', one_max_fitness[i], ' ', one_max_time[i], 's', ' ', one_max_iters[i], ' ')
+    print(str(i) + ': ', one_max_fitness[i], ' ', one_max_time[i], 's', ' ', one_max_iters[i], ' ')
     one_max_plot[i].savefig('one_max' + str(i) + '.png')
 
 # Flip Flop
@@ -104,7 +104,7 @@ FlipFlop_plot = [hill_plot, sim_plot, gen_plot, mimic_plot]
 
 print('Flip Flop\n')
 for i in range(4):
-    print('Hill: ', FlipFlop_fitness[i], ' ', FlipFlop_time[i], 's', ' ', FlipFlop_iters[i], ' ')
+    print(str(i) + ': ', FlipFlop_fitness[i], ' ', FlipFlop_time[i], 's', ' ', FlipFlop_iters[i], ' ')
     FlipFlop_plot[i].savefig('flip_flop' + str(i) + '.png')
 
 # Four Peaks Problem (Simulated Annealing example)
@@ -120,7 +120,7 @@ FourPeaks_plot = [hill_plot, sim_plot, gen_plot, mimic_plot]
 
 print('Four Peaks\n')
 for i in range(4):
-    print('Hill: ', FourPeaks_fitness[i], ' ', FourPeaks_time[i], 's', ' ', FourPeaks_iters[i], ' ')
+    print(str(i) + ': ', FourPeaks_fitness[i], ' ', FourPeaks_time[i], 's', ' ', FourPeaks_iters[i], ' ')
     FourPeaks_plot[i].savefig('four_peaks' + str(i) + '.png')
 
 # 100-Queens Problem
@@ -136,7 +136,7 @@ Queens_plot = [hill_plot, sim_plot, gen_plot, mimic_plot]
 
 print('Queen\n')
 for i in range(4):
-    print('Hill: ', Queens_fitness[i], ' ', Queens_time[i], 's', ' ', Queens_iters[i], ' ')
+    print(str(i) + ': ', Queens_fitness[i], ' ', Queens_time[i], 's', ' ', Queens_iters[i], ' ')
     Queens_plot[i].savefig('queen' + str(i) + '.png')
 
 # Knapsack Problem
@@ -152,7 +152,7 @@ Knapsack_plot = [hill_plot, sim_plot, gen_plot, mimic_plot]
 
 print('Knapsack\n')
 for i in range(4):
-    print('Hill: ', Knapsack_fitness[i], ' ', Knapsack_time[i], 's', ' ', Knapsack_iters[i], ' ')
+    print(str(i) + ': ', Knapsack_fitness[i], ' ', Knapsack_time[i], 's', ' ', Knapsack_iters[i], ' ')
     Knapsack_plot[i].savefig('knapsack' + str(i) + '.png')
 
 # Adjusted OneMax Problem
@@ -168,5 +168,5 @@ Custom_plot = [hill_plot, sim_plot, gen_plot, mimic_plot]
 
 print('Custom\n')
 for i in range(4):
-    print('Hill: ', Custom_fitness[i], ' ', Custom_time[i], 's', ' ', Custom_iters[i], ' ')
+    print(str(i) + ': ', Custom_fitness[i], ' ', Custom_time[i], 's', ' ', Custom_iters[i], ' ')
     Custom_plot[i].savefig('custom' + str(i) + '.png')

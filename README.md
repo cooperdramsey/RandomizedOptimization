@@ -7,9 +7,13 @@ Running the code to repeat the analysis I did is fairly simple. I used an anacon
 I ended up using a direct download of mlrose from the github page as there were updates that had not yet been uploaded to the pip installer.
 The Github link is: https://github.com/gkhayes/mlrose
 
-All of the source code is in the main.py file. 
+All of the source code for the neural network portion can be found in nn.py. THe code for the optimization problem section can be found in opt.py.
 
-The dataset is included in the repository and are in the root of the project so the code can read directly from them using a relative path. You don't need to change anything in the csv files for the code to work. 
+Running the file is fairly straight forward, but to view specific analysis you will need to comment out the sections you don't want see. Each file has each analysis from top to bottom in executed one after the other so commenting out code is easy and won't break the analysis you want to run.
+
+All of the graphs used for the analysis are included in the Graphs directory as well as a few extra not included in the analysis report.
+
+The dataset is included in the repository and is in the root of the project so the code can read directly from them using a relative path. You don't need to change anything in the csv files for the code to work.
 
 Data Set:
 1. UCI Credit Card Data
