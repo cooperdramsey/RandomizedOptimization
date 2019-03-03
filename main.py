@@ -160,15 +160,3 @@ if __name__ == '__main__':
     acc_plot_2.show()
     # time_plot_3.show()
     # acc_plot_3.show()
-
-    # Optimization Example Problems
-
-    # One Max
-
-    # Flip Flop
-
-    # Four Peaks Problem (Simulated Annealing example)
-
-    # K-Color Problem (MIMIC example)
-
-    # Flip Flop with adjusted fitness function
